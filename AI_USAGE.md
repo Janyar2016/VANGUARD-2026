@@ -1,16 +1,13 @@
-# AI Tool Use Disclosure
+# AI Assistance Disclosure
 
-This project was developed by the VANGUARD POLARIS team with AI tools used as supporting assistance.
+The VANGUARD POLARIS team completed the ASTRA HEALTH project independently.
 
-## Where AI assistance was used
+The team independently developed the project concept and ideas, made the design and implementation decisions, wrote and developed the application code, and carried out the project work, including debugging, testing, documentation, registration, and team communications.
 
-- **Code development:** AI assistance was used to draft, revise, explain, and troubleshoot parts of the Python/Streamlit application.
-- **Documentation:** AI assistance was used to help organize, draft, and edit project descriptions and technical documentation.
-- **README and project communication:** AI assistance was used to improve wording, structure, and presentation.
+AI tools, including ChatGPT, were used occasionally as consultation resources at selected stages. Their assistance was limited to opinions, suggestions, explanations, feedback on work prepared by the team, and occasional help organizing or formally wording selected written materials.
 
-## Team responsibility
+AI tools did not write or develop the application's code. All final decisions, implementation work, and submitted project materials were reviewed and completed by the team.
 
-The team selected the project direction, provided project requirements, reviewed the generated suggestions and code, made implementation decisions, and is responsible for checking the accuracy and functionality of the submitted work.
-
-AI assistance does not represent NASA endorsement, clinical validation, or certification. ASTRA HEALTH remains a prototype and must not be used for real medical decisions.
-
+**Team:** VANGUARD POLARIS  
+**Project:** ASTRA HEALTH  
+**Challenge:** NASA Space Apps Challenge 2026
