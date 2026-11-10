@@ -19,55 +19,58 @@ Built by **VANGUARD POLARIS**
 
 ## 🌌 The mission
 
-Space missions place unique demands on the human body. Health information can become difficult to review when measurements, symptoms, and trends are spread across different records.
+Space missions place unusual demands on the human body. Health measurements, symptoms, and changes over time can be difficult for a crew or mission-support team to review when the information is scattered across separate records.
 
-**ASTRA HEALTH** is a prototype designed to make that information easier to organize, explore, and review. It brings health inputs, visual trends, symptom reports, and medical handover notes into one interface.
+**ASTRA HEALTH** is a software prototype that brings manually entered health information, symptom reports, visual trends, and structured handover records into one mission-oriented interface.
 
-Our goal is simple:
+Its purpose is to make demonstration health information easier to record, organize, understand, and prepare for human review.
 
-> Help make astronaut health information clearer and easier for a mission team to review.
+> **Every mission matters. Every health record deserves careful review.**
 
-## ✨ What ASTRA HEALTH can do
+## ✨ Main features
 
-| Feature | What it does |
+| Feature | Description |
 |---|---|
-| **Mission Dashboard** | Presents a mission-focused overview of recorded health information. |
-| **Interactive Body Map** | Lets a user select a body region when recording a symptom. |
-| **Health Input** | Records selected health indicators and mission-related information. |
-| **Explainable Rule Checks** | Applies transparent demonstration rules to highlight patterns that may deserve review. |
-| **Mission Intelligence** | Visualizes recorded measurements and changes over time. |
-| **Symptom Reports** | Organizes symptom details, intensity, onset, and reported trend. |
-| **Medical Handover** | Creates and tracks structured notes for human review. |
-| **Data Export** | Supports exporting project records in JSON format. |
+| **Mission Dashboard** | Displays the current demonstration health snapshot, monitoring results, mission context, and workflow overview. |
+| **Interactive Body Map** | Allows the user to select a body region and connect it to a symptom report. |
+| **Health Input** | Records manually entered health indicators and mission-related context. |
+| **Explainable Monitoring** | Uses visible, rule-based demonstration checks and displays the reasons behind its findings. |
+| **Symptom Reports** | Organizes a reported body region, category, intensity, onset, trend, and selected warning signs. |
+| **Mission Intelligence** | Shows charts and summary statistics for previously recorded measurements. |
+| **Medical Handover** | Keeps structured reports in a local review queue with workflow statuses. |
+| **Data Export** | Exports the current project records as a JSON snapshot. |
+| **Resources & Limitations** | Explains implemented capabilities, project boundaries, and relevant NASA reference resources. |
 
-## 🧠 How the prototype works
+## 🧭 How it works
 
-1. **Record** — Enter mission and health information.
-2. **Organize** — Store records locally in an SQLite database.
-3. **Analyze** — Run transparent, rule-based checks on the entered demonstration data.
-4. **Visualize** — Explore measurements and trends through charts and the dashboard.
-5. **Review** — Prepare symptom and handover information for a qualified human reviewer.
+1. **Record:** Enter fictional or synthetic demonstration measurements and mission context.
+2. **Store:** Save records locally in an SQLite database.
+3. **Check:** Apply transparent, rule-based demonstration checks to the entered values and available history.
+4. **Explore:** Review the dashboard, selected body region, reports, and recorded trends.
+5. **Prepare for review:** Add structured symptom information to the local handover queue.
+6. **Export:** Download a JSON snapshot of the stored project information.
 
-The current analysis is **rule-based and explainable**. It is not a trained machine-learning model and does not make medical decisions.
+The current monitoring logic is **rule-based and explainable**. It is not a trained machine-learning model, and its labels are not clinical risk assessments or medical triage.
 
 ## 🛠️ Technology
 
 - **Python** — application logic
 - **Streamlit** — interactive web interface
-- **Pandas** — data handling
-- **Plotly** — interactive visualizations
-- **SQLite** — local data storage
+- **Pandas** — data handling and trend preparation
+- **Plotly** — interactive charts and body-region selection
+- **SQLite** — local data persistence
+- **JSON** — structured data export
 
-## 🚀 Run the project locally
+## 🚀 Run locally
 
-### 1. Get the code
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Janyar2016/VANGUARD-2026.git
 cd VANGUARD-2026
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create a virtual environment
 
 **Windows (PowerShell):**
 
@@ -85,51 +88,48 @@ source .venv/bin/activate
 
 ### 3. Install dependencies
 
-Install the packages used by the app:
-
 ```bash
-python -m pip install streamlit pandas plotly
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-### 4. Start the app
-
-If the main application file is named `app.py`:
+### 4. Launch ASTRA HEALTH
 
 ```bash
 streamlit run app.py
 ```
 
-If your local main file has a different name, replace `app.py` with that filename.
+Streamlit will provide a local address to open the application in your browser. The SQLite database is created locally when the application starts.
 
-## 🗂️ Project documentation
+## 📁 Repository structure
 
-The `docs/` directory contains the project's supporting documents:
+```text
+VANGUARD-2026/
+├── app.py
+├── requirements.txt
+├── README.md
+├── AI_USAGE.md
+└── .gitignore
+```
 
-- Project overview
-- Problem statement
-- Innovation
-- System architecture
-- Methodology
-- Testing and validation
-- Limitations
-- Future work
-- Scientific references
-
-These documents explain the project's purpose, design choices, current scope, and areas that still need further work.
-
-## ⚠️ Important scope and limitations
+## ⚠️ Safety, scope, and limitations
 
 ASTRA HEALTH is an **educational challenge prototype**, not a certified medical device or clinical decision-support system.
 
-- It does not diagnose diseases or prescribe treatment.
-- Its demonstration rules are illustrative and have not been clinically validated.
-- It does not currently connect to live spacecraft sensors or NASA telemetry.
-- Demonstration or manually entered data should not be interpreted as verified astronaut medical data.
-- A human expert must review any health concern; the prototype must not be used to make real mission or treatment decisions.
+- It does not diagnose conditions, prescribe treatment, or make flight-medical decisions.
+- Its demonstration rules and thresholds are illustrative and have not been clinically validated.
+- The application relies on manually entered information; it does not connect to live spacecraft sensors or NASA telemetry.
+- It does not contain a trained machine-learning prediction model.
+- Symptom priority labels are administrative workflow labels, not medical triage.
+- Handover records remain in the local application; they are not automatically sent to a clinician, flight surgeon, spacecraft, or mission control.
+- Use fictional or synthetic values for demonstrations. Do not enter real personal medical information.
+- Any real health concern must be handled through the appropriate approved procedures and qualified professionals.
 
-## 🔭 Next steps
+## 🔭 Future development
 
-The next development stage is to review the official challenge resources and determine which relevant datasets, references, or tools can be responsibly incorporated. Further work may include stronger validation, clearer evidence for analysis rules, and improved data-handling safeguards.
+Possible next steps include stronger software testing, evidence-based review of demonstration rules, improved privacy and security controls, and carefully evaluated integration with appropriate research datasets or authorized sensor interfaces.
+
+These are future possibilities, not capabilities claimed by the current version.
 
 ## 👥 Team
 
