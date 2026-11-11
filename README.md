@@ -61,6 +61,22 @@ The current monitoring logic is **rule-based and explainable**. It is not a trai
 - **SQLite** — local data persistence
 - **JSON** — structured data export
 
+## 📚 Project documentation
+
+The detailed project documents are available in the [`docs/`](docs/) folder:
+
+| Document | Description |
+|---|---|
+| [Project Overview](docs/project_overview.md) | Project purpose, scope, and overall concept |
+| [Problem Statement](docs/problem_statement.md) | The challenge and the problem ASTRA HEALTH addresses |
+| [Innovation](docs/innovation.md) | The project's approach and distinguishing features |
+| [System Architecture](docs/system_architecture.md) | Main software components and their relationships |
+| [Methodology](docs/methodology.md) | Development approach and application workflow |
+| [Testing and Validation](docs/testing_and_validation.md) | Testing approach and validation notes |
+| [Limitations](docs/limitations.md) | Current boundaries and important safety limitations |
+| [Future Work](docs/future_work.md) | Potential improvements and next development steps |
+| [Scientific References](docs/scientific_references.md) | Reference materials used during project research |
+
 ## 🚀 Run locally
 
 ### 1. Clone the repository
@@ -109,7 +125,17 @@ VANGUARD-2026/
 ├── requirements.txt
 ├── README.md
 ├── AI_USAGE.md
-└── .gitignore
+├── .gitignore
+└── docs/
+    ├── project_overview.md
+    ├── problem_statement.md
+    ├── innovation.md
+    ├── system_architecture.md
+    ├── methodology.md
+    ├── testing_and_validation.md
+    ├── limitations.md
+    ├── future_work.md
+    └── scientific_references.md
 ```
 
 ## ⚠️ Safety, scope, and limitations
