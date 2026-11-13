@@ -24,7 +24,7 @@ Testing is performed in the local application environment using manually entered
 
 The following features are included in the functional testing plan:
 
-| Test ID | Feature | Test Description | Expected Result |
+| Test ID | Feature | Test Description | Result |
 |---|---|---|---|
 | T01 | Dashboard | Open the main dashboard | Dashboard loads correctly |
 | T02 | Body Map | Select a body region | Selected region is identified |
