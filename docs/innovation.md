@@ -1,75 +1,46 @@
-
 # Innovation
-## What Makes ASTRA HEALTH Different?
+## What ASTRA HEALTH Explores
 
-### 1. Beyond a Traditional Health Dashboard
+### 1. An Integrated Information Workflow
 
-ASTRA HEALTH is designed to go beyond simply displaying health measurements.
+ASTRA HEALTH brings manually entered demonstration health indicators, symptom reports, historical records, and a local review workflow into one mission-oriented interface. Rather than showing only isolated measurements, the prototype lets a user review several kinds of entered information in one place.
 
-Instead of presenting isolated values, the platform combines health indicators, symptom reports, and available historical records in one interactive environment.
+### 2. Interactive Body-Region Reporting
 
-This approach helps users review health information in a more connected and organized way.
+The interactive body map allows a user to select a body region as part of a structured symptom report. This provides a visual way to identify where a reported symptom is located.
 
-### 2. Interactive Human Body Mapping
+### 3. Explainable Rule-Based Checks
 
-The interactive body map allows astronauts to select specific body regions and report symptoms associated with them.
+The application applies transparent demonstration rules to selected inputs and combinations. When a rule is activated, the software can show the corresponding finding and explanation.
 
-This creates a more intuitive way to record physical concerns and connects each report to a specific body location.
+The current engine is rule-based. It is not a trained AI or machine-learning model, and its rules are not clinically validated.
 
-### 3. Context-Aware Health Review
+### 4. Historical Context
 
-Health measurements should not always be considered independently.
+The application presents available historical measurements through trend views. The current implementation also includes a recent personal heart-rate reference comparison when enough earlier records are available. These comparisons describe entered data only and do not establish medical significance.
 
-ASTRA HEALTH explores the use of multiple indicators together, including heart rate, sleep duration, blood pressure, body temperature, and self-reported well-being.
+### 5. Structured Symptom Review
 
-The goal is to make potentially meaningful changes easier to identify and review.
+Symptom reports collect structured details exposed by the form, such as selected body region, symptom description, severity, onset/progression, and selected warning indicators. A submitted symptom report is stored with a corresponding item in the local Mission Review Queue.
 
-### 4. Personal Baseline and Trend Awareness
+The queue is a local software workflow. It does not transmit a report to a clinician, flight surgeon, spacecraft, or mission control.
 
-A measurement that is normal for one person may differ from another person's usual pattern.
+### 6. Mission-Oriented Knowledge Context
 
-ASTRA HEALTH includes the concept of comparing available measurements with an individual's previous records.
+The Space Health Knowledge Base introduces selected NASA human-spaceflight hazard topics and links to NASA and Canadian Space Agency reference pages. These materials provide context; the current app does not ingest their datasets or telemetry.
 
-This can help highlight changes from personal historical patterns rather than relying only on fixed demonstration values.
+### 7. Key Contribution
 
-### 5. Structured Medical Handover
+The prototype's main contribution is the integration of:
+- Manual health-indicator entry.
+- Interactive body-region symptom reporting.
+- Transparent rule-based demonstration findings.
+- Historical trend visualization.
+- A local symptom-review workflow.
+- JSON export and a curated space-health reference section.
 
-A symptom report should provide more useful information than simply recording that a person feels unwell.
+Together, these components demonstrate one possible software workflow for organizing and reviewing astronaut-health-related information.
 
-ASTRA HEALTH organizes information such as:
-- Selected body region.
-- Reported symptom.
-- Symptom severity.
-- Onset and progression.
-- Associated warning indicators.
-- Mission-related context.
+### 8. Scope
 
-These details can be organized into a structured report for review by the appropriate medical team.
-
-### 6. Mission-Oriented Design
-
-ASTRA HEALTH is designed around the specific challenges of space missions.
-
-Its approach considers the importance of monitoring health information in an environment involving microgravity, isolation, restricted living conditions, and distance from Earth.
-
-Future versions could incorporate additional mission-related information, such as radiation exposure, exercise records, and environmental measurements.
-
-### 7. Explainable Alerts
-
-The system aims to make alerts understandable by showing which entered information or demonstration rules contributed to an alert.
-
-This helps users review why a particular report was highlighted instead of receiving an unexplained warning.
-
-### 8. Key Innovation
-
-The main innovation of ASTRA HEALTH is its combination of:
-
-- Interactive body-based symptom reporting.
-- Multiple health indicators in one interface.
-- Personal historical trend comparison.
-- Demonstration-based alert assessment.
-- Structured medical handover reports.
-
-Together, these features create a unified approach to organizing and reviewing astronaut health information.
-
-ASTRA HEALTH is a research prototype. Its current analysis rules are not clinically validated, and its alerts do not represent medical diagnoses or operational NASA medical standards.
+ASTRA HEALTH is an educational prototype. Its demonstration rules are not medical diagnoses, validated risk scores, official NASA medical standards, or operational flight-health recommendations.
