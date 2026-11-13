@@ -1,54 +1,49 @@
-
 # Limitations
 ## Current Limitations of ASTRA HEALTH
 
+**Application version:** 4.0.0
+
 ### 1. Prototype Status
 
-ASTRA HEALTH is currently a research and demonstration prototype.
+ASTRA HEALTH is an educational challenge prototype. It is not certified or approved as a medical device and is not intended for operational medical use during space missions.
 
-It has not been certified or approved as a medical device and is not intended for operational medical use during space missions.
+### 2. Input Data
 
-### 2. Data Limitations
+The current application relies on manually entered or synthetic demonstration information. It does not connect to real astronaut medical sensors, spacecraft telemetry, or operational NASA/CSA systems.
 
-The current prototype primarily uses manually entered or synthetic data.
+### 3. NASA and CSA Resources
 
-It is not directly connected to real astronaut medical sensors, spacecraft monitoring systems, or operational NASA databases.
+The Space Health Knowledge Base provides summaries and links to selected NASA and Canadian Space Agency resources. These references provide background context only. The prototype does not ingest, download, or analyze the linked organizations' telemetry or research datasets. The inclusion of a reference does not imply NASA or CSA endorsement.
 
-### 3. Medical Validation
+### 4. Rule and Threshold Validity
 
-The health assessment and alert rules are demonstration rules.
+The monitoring rules and thresholds are illustrative software settings. They have not been clinically validated and must not be interpreted as official NASA/CSA limits, diagnostic criteria, validated risk scores, or medical triage.
 
-They have not been clinically validated and should not be interpreted as official NASA medical thresholds or diagnostic criteria.
+### 5. Database and Privacy
 
-### 4. Limited Historical Data
+SQLite provides local persistence for the prototype's health history, symptom reports, and review queue. The current implementation is not a secure clinical records system. It does not provide encrypted medical storage, multi-user authentication, role-based access control, cloud backup, or secure synchronization. Only fictional or synthetic data should be used in demonstrations.
 
-The current application has limited data storage capabilities.
+### 6. Review Workflow and Connectivity
 
-Historical comparisons depend on the records available within the application. This may restrict long-term analysis across multiple sessions or missions.
+Mission Review Queue is a local workflow. It does not automatically communicate with a clinician, flight surgeon, spacecraft, or mission control. Live communication and remote medical-team integration are not implemented.
 
-### 5. Environmental Information
+### 7. Analytical Scope
 
-Although ASTRA HEALTH is designed for spaceflight health monitoring, the current prototype does not yet integrate all relevant environmental and mission-related measurements.
+The application uses transparent, rule-based demonstration checks. It does not contain a trained machine-learning model or an automated predictive system. Historical charts describe entered records and do not establish medical conclusions.
 
-Examples include radiation exposure, spacecraft environmental conditions, and detailed exercise records.
+### 8. Environmental and Mission Data
 
-### 6. Connectivity and Integration
+The current version does not integrate radiation dosimeter readings, spacecraft environmental sensors, exercise equipment, or other live mission systems.
 
-The current version does not provide a fully integrated connection to spacecraft systems or remote medical infrastructure.
+### 9. Requirements Before Real-World Use
 
-Real-time communication with mission control and medical teams has not been implemented.
+Any future operational direction would require, at minimum:
+- Appropriate and lawfully usable astronaut-health datasets.
+- Review by qualified aerospace-medicine and software-safety experts.
+- Clinical and operational validation under representative conditions.
+- Strong privacy, cybersecurity, access-control, and data-governance measures.
+- Integration and reliability testing with authorized systems.
 
-### 7. Future Validation Requirements
+### 10. Conclusion
 
-Before operational use, ASTRA HEALTH would require:
-- Validation with appropriate astronaut health datasets.
-- Review by qualified medical and spaceflight experts.
-- Evaluation under representative mission conditions.
-- Reliable data security and privacy mechanisms.
-- Integration testing with compatible monitoring equipment.
-
-### 8. Conclusion
-
-These limitations define the current scope of ASTRA HEALTH and identify areas for further research and development.
-
-The prototype demonstrates a software approach to organizing and reviewing astronaut health information, while recognizing that operational spaceflight medical systems require substantially more validation and engineering.
+The current prototype demonstrates a local information-management and review workflow. These limitations define what the software currently does and what remains outside its scope.
