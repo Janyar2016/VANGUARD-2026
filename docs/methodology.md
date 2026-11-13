@@ -1,100 +1,60 @@
-
 # Methodology
 ## How ASTRA HEALTH Works
 
+**Application version:** 4.0.0
+
 ### 1. General Approach
 
-ASTRA HEALTH follows a structured workflow for collecting, organizing, reviewing, and presenting astronaut health information.
+ASTRA HEALTH demonstrates a workflow for entering, organizing, reviewing, and exporting astronaut-health-related information. It combines manually entered demonstration measurements, self-reported symptom records, historical data, transparent demonstration rules, and a local review queue.
 
-The methodology combines user-entered health measurements, symptom reports, historical records, and rule-based assessment.
+### 2. Data Entry
 
-### 2. Data Collection
+**Health Input**
 
-The system collects different categories of information:
+Users enter the health indicators and mission-context fields exposed by the application. The submitted record receives an identifier and timestamp and is stored in the local health history.
 
-**Physiological Measurements**
-- Heart rate.
-- Blood pressure.
-- Body temperature.
-- Blood glucose, when available.
+**Symptom Report**
 
-**Daily Health Information**
-- Sleep duration.
-- Mood and self-reported well-being.
+Users select a body region and submit structured symptom information. The form captures the symptom details exposed by the application, including description, severity, onset/progression information, and selected warning indicators.
 
-**Symptom Information**
-- Selected body region.
-- Symptom description.
-- Reported severity.
-- Time of onset.
-- Symptom progression.
+### 3. Input Handling and Storage
 
-### 3. Data Organization and Validation
+The application performs basic input handling and stores record payloads as JSON text in SQLite tables.
 
-Submitted information is organized into structured records.
+- Health-input records are inserted into `health_history`.
+- Symptom reports are inserted into `symptom_reports`.
+- A corresponding local review item is inserted into `handover_queue`.
 
-The system checks input completeness and basic validity before using the information in its analysis.
+The symptom report and its associated queue item are written in a single SQLite transaction. The application reloads stored records when initializing its local state.
 
-Missing or invalid values should be distinguished from actual measurements.
+### 4. Demonstration-Rule Assessment
 
-### 4. Health Indicator Assessment
+The monitoring logic evaluates selected entered values and combinations against predefined rules in the code. When a rule is met, the application creates an explainable finding that identifies the rule condition.
 
-Available measurements are reviewed using the demonstration rules implemented in the current prototype.
+These thresholds are illustrative software settings only. They are not official NASA or CSA limits, clinical reference ranges, validated risk scores, or medical triage criteria. The engine is rule-based; it is not a trained AI or machine-learning model.
 
-The system can identify selected values or combinations of inputs that meet predefined conditions.
+### 5. Historical Views
 
-These rules are intended to demonstrate the software workflow and are not clinically validated medical thresholds.
+The Mission Intelligence page presents available historical measurements through charts and summary statistics. These views describe the records entered into the local application. They do not establish causation, predict a medical outcome, or diagnose a condition.
 
-### 5. Personal Trend Comparison
+### 6. Mission Review Queue
 
-When historical records are available, the system compares selected current measurements with previous records.
+The Mission Review Queue displays local workflow items associated with submitted symptom reports. Each item includes identifying and summary information, a demonstration priority label, body-region context, and a workflow status. Status changes are persisted to the SQLite queue table.
 
-This comparison helps highlight changes from an individual's recorded history.
+The queue is an administrative software workflow only. It does not send reports to a medical team, flight surgeon, spacecraft, or mission control.
 
-Historical differences are treated as observations that may require review, not as proof of a medical condition.
+### 7. Knowledge Base and External References
 
-### 6. Symptom Assessment
+The Space Health Knowledge Base summarizes selected NASA human-spaceflight hazard topics and links to NASA and CSA research/educational pages. These sources are provided for scientific context. The application does not download or analyze the linked organizations' telemetry or research datasets.
 
-When a user submits a symptom report, the system organizes the information according to:
-- Body location.
-- Symptom description.
-- Reported severity.
-- Onset.
-- Progression.
-- Selected warning indicators.
+### 8. Data Export
 
-The system then applies its implemented demonstration rules to assign a report priority.
+The Data Export page serializes the available project data into a downloadable JSON snapshot. The export includes the project and version, mission labels, current health snapshot, health history, symptom reports, review queue, and disclaimer.
 
-### 7. Alert Generation
+### 9. Testing Method
 
-The alert assessment process evaluates the available information and highlights reports that meet selected conditions.
-
-The resulting alert includes relevant information about the submitted data and the reason the report was highlighted.
-
-The alert is intended to support human review and does not provide a medical diagnosis.
-
-### 8. Reporting and Data Export
-
-The system organizes symptom reports and available health information into structured records.
-
-These records can be reviewed through the application and exported in JSON format for further analysis.
-
-### 9. Testing Approach
-
-The methodology can be evaluated using synthetic test scenarios with different combinations of health measurements and reported symptoms.
-
-Testing focuses on:
-- Correct data entry and validation.
-- Accurate selection of body regions.
-- Consistent application of demonstration rules.
-- Correct generation of reports.
-- Appropriate display of alerts.
-- Successful data export.
+Software behavior can be checked with fictional or synthetic inputs. Testing should cover form submission, database persistence, rule activation, chart display, review-status changes, and JSON export. Testing software behavior does not validate clinical accuracy or medical safety.
 
 ### 10. Methodological Limitations
 
-The current methodology is based on a software prototype and demonstration rules.
-
-It has not been clinically validated using astronaut medical datasets or operational mission conditions.
-
-Further research, reliable spaceflight health references, and expert review would be necessary before operational use.
+The current method is a local software demonstration based on manual/synthetic inputs and illustrative rules. It has not been validated with astronaut medical datasets, operational spacecraft systems, or qualified clinical review.
