@@ -1,60 +1,40 @@
-
-
 # Future Work
-## Future Development of ASTRA HEALTH
+## Potential Development of ASTRA HEALTH
 
-### 1. Advanced Health Data Integration
+The items below are possible future directions. They are not capabilities claimed by the current version.
 
-Future versions could support integration with wearable health sensors and compatible monitoring devices to collect physiological measurements more efficiently.
+### 1. Evidence-Based Rule Review
 
-### 2. Long-Term Health Trend Analysis
+Review the demonstration rules with qualified aerospace-medicine professionals and determine whether suitable, authoritative evidence can support any future monitoring logic. No threshold should be presented as a medical limit without appropriate evidence and validation.
 
-The system could be extended to analyze longer periods of astronaut health records and identify meaningful changes across different mission stages.
+### 2. Authorized Data Integration
 
-### 3. Mission-Aware Health Intelligence
+Explore whether appropriate, lawfully usable research datasets or authorized sensor interfaces could be integrated. Any integration would require source documentation, data-use review, data-quality checks, and clear separation between research data and operational medical records.
 
-Future development could incorporate additional mission-related information, including:
-- Radiation exposure records.
-- Exercise and physical activity.
-- Sleep schedules.
-- Environmental conditions.
-- Mission duration and microgravity exposure.
+### 3. Longer-Term Trend Tools
 
-Combining these factors could provide a broader context for reviewing health information.
+Evaluate additional ways to summarize longitudinal records while accounting for missing data, measurement context, and individual variability.
 
-### 4. Advanced Pattern Recognition
+### 4. Mission Context
 
-Machine learning methods could be investigated to explore patterns across multiple health indicators.
+Investigate how approved mission-context information—such as radiation exposure records, exercise logs, sleep schedules, and environmental measurements—could be represented without implying that these sources are currently connected.
 
-Such methods would require suitable datasets, careful validation, and expert review before being used to support medical decisions.
+### 5. Explainability and Usability
 
-### 5. Improved Alert Explainability
+Improve explanations of which inputs activate a rule, make review history easier to navigate, and evaluate the interface with representative users.
 
-Future versions could provide more detailed explanations of why an alert was generated, which measurements contributed to it, and what additional information may be useful for medical review.
+### 6. Privacy and Security
 
-### 6. Secure Data Storage
+Before handling real personal or medical information, design and independently assess encryption, authentication, access control, secure backups, retention policies, and data governance.
 
-The application could be extended with secure, persistent storage to support long-term records while protecting sensitive astronaut health information.
+### 7. Authorized Medical Workflow Integration
 
-### 7. Medical Team Integration
+Only after appropriate safety, privacy, and operational review, explore whether a secure interface could support authorized medical personnel. The current local queue is not a communication channel.
 
-Future development could explore secure communication and reporting interfaces for authorized crew medical officers and mission medical support teams.
+### 8. Validation
 
-### 8. Spaceflight Environment Adaptation
+Future work should include software testing, usability evaluation, data-quality assessment, expert review, and—if the scope ever moves toward medical use—formal validation under appropriate regulatory and operational requirements.
 
-The system could be further evaluated for the constraints of space missions, including limited connectivity, restricted computing resources, and the need for reliable offline operation.
+### 9. Long-Term Vision
 
-### 9. Validation and Research
-
-Further work should include:
-- Testing with appropriate spaceflight health datasets.
-- Collaboration with qualified medical and aerospace experts.
-- Evaluation of analysis methods.
-- Usability testing with representative users.
-- Verification under simulated mission conditions.
-
-### 10. Long-Term Vision
-
-The long-term vision of ASTRA HEALTH is to develop a reliable, explainable, and mission-aware health information platform that supports astronauts and medical teams throughout space missions.
-
-The goal is to make health information easier to monitor, understand, and communicate in challenging spaceflight environments.
+The long-term research direction is an explainable, mission-aware information platform that helps organize health-related information for human review, while maintaining clear boundaries between software demonstrations and validated medical systems.
