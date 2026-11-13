@@ -3,7 +3,7 @@
 # ASTRA HEALTH
 ### Because Every Mission Matters.
 
-**An explainable astronaut health-monitoring prototype for space missions**
+**An explainable, rule-based astronaut health-monitoring prototype for space missions**
 
 Built by **VANGUARD POLARIS**  
 [Janyar Rakhshanfar](https://github.com/Janyar2016) · Sobhan Rakhshanfar
@@ -11,73 +11,72 @@ Built by **VANGUARD POLARIS**
 [![NASA Space Apps Challenge 2026](https://img.shields.io/badge/NASA%20Space%20Apps-Challenge%202026-0B3D91?style=for-the-badge&logo=nasa&logoColor=white)](https://www.spaceappschallenge.org/)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![Project status](https://img.shields.io/badge/Status-Prototype-16A34A?style=for-the-badge)
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Version](https://img.shields.io/badge/Version-4.0.0-16A34A?style=for-the-badge)
 
 </div>
 
 ---
 
-## 🌌 The mission
+## The mission
 
-Space missions place unusual demands on the human body. Health measurements, symptoms, and changes over time can be difficult for a crew or mission-support team to review when the information is scattered across separate records.
+Spaceflight creates a demanding environment for human health and performance. Crew members and mission-support teams need clear ways to record health information, review reported symptoms, and understand changes across available records.
 
-**ASTRA HEALTH** is a software prototype that brings manually entered health information, symptom reports, visual trends, and structured handover records into one mission-oriented interface.
+**ASTRA HEALTH** is a local software prototype that brings manually entered health indicators, symptom reports, historical trends, and a structured review workflow into one mission-oriented interface.
 
-Its purpose is to make demonstration health information easier to record, organize, understand, and prepare for human review.
+The prototype focuses on **organizing information and making its software-generated findings explainable**. It is not a medical device and does not make clinical or flight-medical decisions.
 
-> **Every mission matters. Every health record deserves careful review.**
+## What ASTRA HEALTH includes
 
-## ✨ Main features
-
-| Feature | Description |
+| Feature | Current implementation |
 |---|---|
-| **Mission Dashboard** | Displays the current demonstration health snapshot, monitoring results, mission context, and workflow overview. |
-| **Interactive Body Map** | Allows the user to select a body region and connect it to a symptom report. |
-| **Health Input** | Records manually entered health indicators and mission-related context. |
-| **Explainable Monitoring** | Uses visible, rule-based demonstration checks and displays the reasons behind its findings. |
-| **Symptom Reports** | Organizes a reported body region, category, intensity, onset, trend, and selected warning signs. |
-| **Mission Intelligence** | Shows charts and summary statistics for previously recorded measurements. |
-| **Medical Handover** | Keeps structured reports in a local review queue with workflow statuses. |
-| **Data Export** | Exports the current project records as a JSON snapshot. |
-| **Resources & Limitations** | Explains implemented capabilities, project boundaries, and relevant NASA reference resources. |
+| **Mission Dashboard** | Presents the current demonstration health snapshot and rule-based findings. |
+| **Interactive Body Map** | Lets a user select a body region as part of symptom reporting. |
+| **Health Input** | Records manually entered health indicators and mission context. |
+| **Explainable Rule-Based Monitoring** | Applies transparent demonstration rules and shows why a rule was activated. It is not AI or machine learning. |
+| **Symptom Report** | Captures structured symptom information, body region, severity, onset, progression, and selected warning indicators. |
+| **Mission Intelligence** | Displays available historical measurements and trend charts. |
+| **Mission Review Queue** | Stores submitted symptom-review items locally and supports workflow-status updates. |
+| **Data Export** | Downloads a JSON snapshot of the available project records. |
+| **Space Health Knowledge Base** | Summarizes selected NASA Human Research Program topics and links to NASA and Canadian Space Agency (CSA) reference material. |
 
-## 🧭 How it works
+## How the application works
 
-1. **Record:** Enter fictional or synthetic demonstration measurements and mission context.
-2. **Store:** Save records locally in an SQLite database.
-3. **Check:** Apply transparent, rule-based demonstration checks to the entered values and available history.
-4. **Explore:** Review the dashboard, selected body region, reports, and recorded trends.
-5. **Prepare for review:** Add structured symptom information to the local handover queue.
-6. **Export:** Download a JSON snapshot of the stored project information.
+1. **Enter information:** The user enters demonstration health measurements or submits a structured symptom report.
+2. **Validate and assess:** The application checks inputs and applies its implemented, explainable demonstration rules.
+3. **Store locally:** SQLite stores health history, symptom reports, and review-queue items in a local database file.
+4. **Review patterns:** The dashboard and trend views present the information available in the local record history.
+5. **Track review workflow:** Submitted symptom reports are represented in the local Mission Review Queue, where their workflow status can be updated.
+6. **Export:** The user can download a JSON snapshot of the application data.
 
-The current monitoring logic is **rule-based and explainable**. It is not a trained machine-learning model, and its labels are not clinical risk assessments or medical triage.
+### Local database
 
-## 🛠️ Technology
+The application creates `astra_health.db` in the same directory as `app.py`. It uses three SQLite tables:
+
+- `health_history` — saved health-input records.
+- `symptom_reports` — submitted symptom reports.
+- `handover_queue` — local review items and their workflow statuses.
+
+The database is local to the computer running the application. It is not a NASA database, cloud service, or secure clinical record system. The application does not automatically transmit records to a clinician, spacecraft, or mission control.
+
+## NASA and CSA research context
+
+The **Space Health Knowledge Base** introduces five broad human-spaceflight hazard areas described by NASA: space radiation, isolation and confinement, distance from Earth, gravity fields, and hostile or closed environments. It also links to NASA Human Research Program risk and research pages, the NASA Human Research Roadmap, NASA Technical Standards, and selected CSA educational and research resources.
+
+These materials provide **scientific background and context**. The current prototype does **not** download, ingest, or analyze NASA/CSA telemetry or research datasets. Its demonstration thresholds are not NASA or CSA medical limits and are not derived from those websites.
+
+See [Scientific References](docs/scientific_references.md) and [Resources](resources.txt).
+
+## Technology
 
 - **Python** — application logic
 - **Streamlit** — interactive web interface
 - **Pandas** — data handling and trend preparation
 - **Plotly** — interactive charts and body-region selection
-- **SQLite** — local data persistence
+- **SQLite** — local persistence
 - **JSON** — structured data export
 
-## 📚 Project documentation
-
-The detailed project documents are available in the [`docs/`](docs/) folder:
-
-| Document | Description |
-|---|---|
-| [Project Overview](docs/project_overview.md) | Project purpose, scope, and overall concept |
-| [Problem Statement](docs/problem_statement.md) | The challenge and the problem ASTRA HEALTH addresses |
-| [Innovation](docs/innovation.md) | The project's approach and distinguishing features |
-| [System Architecture](docs/system_architecture.md) | Main software components and their relationships |
-| [Methodology](docs/methodology.md) | Development approach and application workflow |
-| [Testing and Validation](docs/testing_and_validation.md) | Testing approach and validation notes |
-| [Limitations](docs/limitations.md) | Current boundaries and important safety limitations |
-| [Future Work](docs/future_work.md) | Potential improvements and next development steps |
-| [Scientific References](docs/scientific_references.md) | Reference materials used during project research |
-
-## 🚀 Run locally
+## Run locally
 
 ### 1. Clone the repository
 
@@ -86,9 +85,9 @@ git clone https://github.com/Janyar2016/VANGUARD-2026.git
 cd VANGUARD-2026
 ```
 
-### 2. Create a virtual environment
+### 2. (Optional) Create a virtual environment
 
-**Windows (PowerShell):**
+**Windows PowerShell:**
 
 ```powershell
 py -m venv .venv
@@ -109,15 +108,15 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-### 4. Launch ASTRA HEALTH
+### 4. Start the application
 
 ```bash
 streamlit run app.py
 ```
 
-Streamlit will provide a local address to open the application in your browser. The SQLite database is created locally when the application starts.
+The terminal displays a local address for opening ASTRA HEALTH in a browser. On first startup, the application initializes the SQLite tables and creates `astra_health.db` beside `app.py`.
 
-## 📁 Repository structure
+## Repository structure
 
 ```text
 VANGUARD-2026/
@@ -125,6 +124,7 @@ VANGUARD-2026/
 ├── requirements.txt
 ├── README.md
 ├── AI_USAGE.md
+├── resources.txt
 ├── .gitignore
 └── docs/
     ├── project_overview.md
@@ -138,26 +138,36 @@ VANGUARD-2026/
     └── scientific_references.md
 ```
 
-## ⚠️ Safety, scope, and limitations
+## Safety, scope, and limitations
 
-ASTRA HEALTH is an **educational challenge prototype**, not a certified medical device or clinical decision-support system.
+ASTRA HEALTH is an **educational software prototype**.
 
 - It does not diagnose conditions, prescribe treatment, or make flight-medical decisions.
-- Its demonstration rules and thresholds are illustrative and have not been clinically validated.
-- The application relies on manually entered information; it does not connect to live spacecraft sensors or NASA telemetry.
-- It does not contain a trained machine-learning prediction model.
-- Symptom priority labels are administrative workflow labels, not medical triage.
-- Handover records remain in the local application; they are not automatically sent to a clinician, flight surgeon, spacecraft, or mission control.
-- Use fictional or synthetic values for demonstrations. Do not enter real personal medical information.
-- Any real health concern must be handled through the appropriate approved procedures and qualified professionals.
+- Its thresholds and alert rules are illustrative software settings, not clinically validated reference ranges or official NASA limits.
+- It uses manually entered or synthetic demonstration information; it does not connect to live spacecraft sensors or NASA telemetry.
+- Its monitoring engine is rule-based. It is not a trained AI or machine-learning model.
+- Priority labels are workflow labels for software demonstration, not medical triage.
+- The review queue is local and does not send reports to medical personnel or mission control.
+- SQLite storage is local and is not presented as encrypted, multi-user, or clinically secure storage.
+- Use fictional or synthetic information for demonstrations. Do not enter real personal medical information.
 
-## 🔭 Future development
+Any real health concern must be handled through the appropriate approved procedures and qualified professionals.
 
-Possible next steps include stronger software testing, evidence-based review of demonstration rules, improved privacy and security controls, and carefully evaluated integration with appropriate research datasets or authorized sensor interfaces.
+## Project documentation
 
-These are future possibilities, not capabilities claimed by the current version.
+| Document | Purpose |
+|---|---|
+| [Project Overview](docs/project_overview.md) | Purpose, scope, users, and implemented features |
+| [Problem Statement](docs/problem_statement.md) | The spaceflight health-information challenge |
+| [Innovation](docs/innovation.md) | The prototype's integrated workflow and explainability |
+| [System Architecture](docs/system_architecture.md) | Application layers, SQLite schema, and data flow |
+| [Methodology](docs/methodology.md) | Input, rule assessment, persistence, review, and export |
+| [Testing and Validation](docs/testing_and_validation.md) | Test plan, recorded checks, and testing limitations |
+| [Limitations](docs/limitations.md) | Current technical and scientific boundaries |
+| [Future Work](docs/future_work.md) | Possible next development steps |
+| [Scientific References](docs/scientific_references.md) | NASA and CSA background resources |
 
-## 👥 Team
+## Team
 
 **VANGUARD POLARIS**
 

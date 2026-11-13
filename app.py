@@ -36,7 +36,7 @@ st.set_page_config(
 # --------------------------------------------------------------------------
 
 APP_NAME = "ASTRA HEALTH"
-VERSION = "3.1.0"
+VERSION = "4.0.0"
 DB_PATH = Path(__file__).with_name("astra_health.db")
 
 DISCLAIMER = (
@@ -396,6 +396,14 @@ def evaluate_health(
             "Mood check-in",
             f"Self-reported mood: {data.get('mood')}.",
             "Offer a private, supportive crew check-in.",
+        )
+
+    if data.get("hydration") == "Needs attention":
+        add(
+            "Monitor",
+            "Hydration self-check",
+            "The crew member marked hydration as needing attention.",
+            "Review the entry in the context of the mission's approved hydration plan.",
         )
 
     if (
@@ -760,7 +768,8 @@ def page_dashboard() -> None:
     )
     notice(
         "<b>Prototype notice:</b> this dashboard uses manually entered or "
-        "demonstration data. Its rules are not clinically validated."
+        "synthetic data. All rule thresholds are illustrative software settings, "
+        "not NASA limits or clinically validated medical thresholds."
     )
 
     cards = [
@@ -801,7 +810,7 @@ def page_dashboard() -> None:
             1 for item in st.session_state.handover_queue
             if item.get("status") == HANDOVER_STATUSES[0]
         )
-        st.metric("Pending handovers", pending)
+        st.metric("Pending review items", pending)
         st.metric("Symptom reports", len(st.session_state.symptom_reports))
 
 
@@ -1077,16 +1086,16 @@ def page_intelligence() -> None:
 
 
 def page_handover() -> None:
-    hero("Medical Handover", "A local queue for structured review reports.")
+    hero("Mission Review Queue", "A local queue for structured review reports.")
 
     queue = st.session_state.handover_queue
     if not queue:
-        st.info("No handover items yet. Submit a symptom report first.")
+        st.info("No review items yet. Submit a symptom report first.")
         return
 
     for item in queue:
         with st.container(border=True):
-            st.markdown(f"### {item.get('title', 'Handover item')}")
+            st.markdown(f"### {item.get('title', 'Review item')}")
             st.caption(f"{item.get('id')} · {item.get('timestamp', '')}")
             st.write(item.get("summary", ""))
             st.write(f"**Priority:** {item.get('priority', 'Not specified')}")
@@ -1115,7 +1124,7 @@ def build_export() -> bytes:
         "current_health_snapshot": st.session_state.health,
         "health_history": st.session_state.health_history,
         "symptom_reports": st.session_state.symptom_reports,
-        "handover_queue": st.session_state.handover_queue,
+        "review_queue": st.session_state.handover_queue,
         "disclaimer": DISCLAIMER,
     }
     return json.dumps(payload, ensure_ascii=False, indent=2, default=str).encode("utf-8")
@@ -1125,7 +1134,7 @@ def page_export() -> None:
     hero("Data Export", "Download a complete snapshot of the local project data.")
     st.write(
         "The export includes mission labels, current health data, historical records, "
-        "symptom reports, and the handover queue."
+        "symptom reports, and the review queue."
     )
     st.download_button(
         "Download complete JSON snapshot",
@@ -1139,53 +1148,93 @@ def page_export() -> None:
 
 def page_resources() -> None:
     hero(
-        "Resources & Limitations",
-        "Project references, implemented capabilities, and system boundaries.",
+        "Space Health Knowledge Base",
+        "A guided overview of the official NASA and Canadian Space Agency resources referenced by this prototype.",
     )
 
-    st.subheader("Reference resources")
-    st.markdown(
-        """
-        - [NASA Human Research Program](https://www.nasa.gov/hrp/)
-        - [NASA Human Research Roadmap](https://humanresearchroadmap.nasa.gov/)
-        - [NASA Technical Standards](https://standards.nasa.gov/)
-        """
+    st.subheader("NASA Human Research Program: five hazards")
+    st.write(
+        "NASA groups major human-spaceflight challenges into five connected hazard areas. "
+        "These are mission-level research topics, not individual diagnoses."
     )
 
-    st.subheader("Implemented capabilities")
+    hazard_cards = [
+        (
+            "Space radiation",
+            "Radiation exposure is an important consideration for crew health, especially on missions beyond Earth's protective environment.",
+        ),
+        (
+            "Isolation and confinement",
+            "Long periods in a confined, remote environment can affect sleep, behavior, well-being, and team performance.",
+        ),
+        (
+            "Distance from Earth",
+            "Communication delays and limited access to supplies or medical support increase the need for reliable onboard information and planning.",
+        ),
+        (
+            "Gravity fields",
+            "Microgravity and transitions between gravity environments require the human body to adapt; NASA studies effects on multiple body systems.",
+        ),
+        (
+            "Hostile and closed environments",
+            "Spacecraft conditions such as temperature, pressure, lighting, noise, water, and microbial environments are important to crew health and performance.",
+        ),
+    ]
+    for index, (title, description) in enumerate(hazard_cards, start=1):
+        with st.container(border=True):
+            st.markdown(f"**{index}. {title}**")
+            st.write(description)
+
     st.markdown(
-        """
-        - Manual health-data entry
-        - Local SQLite data persistence
-        - Schematic body-region selection
-        - Structured symptom reports
-        - Explainable demonstration rules
-        - Personal-reference comparison
-        - Combined-pattern detection
-        - Historical trend charts
-        - Local handover workflow
-        - Complete JSON export
-        """
+        "[NASA — Five Hazards of Human Spaceflight](https://www.nasa.gov/hrp/hazards/)"
     )
 
-    st.subheader("Not implemented")
+    st.subheader("NASA: human-spaceflight risks and ongoing research")
     st.markdown(
-        """
-        - Live spacecraft sensor integration
-        - Live NASA telemetry connection
-        - Machine-learning prediction model
-        - Clinically validated risk assessment
-        - Secure multi-user authentication
-        - Encrypted clinical database
-        - Automatic flight-surgeon communication
-        - Radiation and environmental sensor fusion
-        """
+        """- [Risks of Human Spaceflight](https://www.nasa.gov/hrp/risks/) — an overview of identified human-health and performance risks.
+- [Ongoing HRP Research in Space](https://www.nasa.gov/hrp/ongoing-hrp-research/) — articles about current Human Research Program work.
+- [NASA Human Research Roadmap](https://humanresearchroadmap.nasa.gov/) — research gaps and risk information.
+- [NASA Technical Standards](https://standards.nasa.gov/) — technical standards and reference material."""
+    )
+
+    st.subheader("Canadian Space Agency (CSA) partner resources")
+    st.markdown(
+        """- [Monitoring Radiation for Astronaut Health](https://www.asc-csa.gc.ca/eng/news/articles/2026/2026-02-26-monitoring-radiation-astronaut-health.asp) — an overview of radiation monitoring technologies and research.
+- [Why Do We Conduct Science Experiments in Space?](https://www.asc-csa.gc.ca/eng/iss/science/why-do-we-conduct-science-experiments-in-space.asp) — background on the value of research in the space environment."""
     )
 
     notice(
-        "<b>Scientific integrity:</b> ASTRA HEALTH is a challenge prototype. "
-        "Its demonstration rules require validation by qualified "
-        "aerospace-medicine professionals before real-world use."
+        "<b>Source and data-use note:</b> These links and summaries provide scientific context. "
+        "This prototype does not download, ingest, or analyze NASA/CSA telemetry or research datasets. "
+        "No rule threshold in this app is claimed to come from NASA or CSA. Follow the data-use terms "
+        "of each external website. NASA does not endorse non-U.S. Government entities and is not "
+        "responsible for information on non-U.S. Government websites."
+    )
+
+    st.subheader("What ASTRA HEALTH currently does")
+    st.markdown(
+        """- Manual entry of demonstration health indicators and mission context
+- Local SQLite storage on the computer running the app
+- Schematic body-region selection and structured symptom reports
+- Transparent, rule-based demonstration checks with an explanation for each finding
+- Comparison with a recent personal heart-rate reference when enough earlier records exist
+- Historical trend charts, a local review queue, and JSON export"""
+    )
+
+    st.subheader("Current system boundaries")
+    st.markdown(
+        """- No live spacecraft sensors, NASA telemetry, or external health-data connection
+- No machine-learning model or automated prediction
+- No clinically validated thresholds, diagnosis, treatment advice, or medical triage
+- No secure multi-user authentication or encrypted clinical database
+- No automatic communication with a flight surgeon or mission control
+- No radiation dosimeter integration or environmental sensor fusion"""
+    )
+
+    notice(
+        "<b>Scientific integrity:</b> ASTRA HEALTH is an educational challenge prototype. "
+        "Its demonstration rules are software examples only and require assessment by qualified "
+        "aerospace-medicine professionals before any real-world use."
     )
 
 
@@ -1199,9 +1248,9 @@ PAGES = {
     "Health Input": page_health_input,
     "Symptom Report": page_symptom_report,
     "Mission Intelligence": page_intelligence,
-    "Medical Handover": page_handover,
+    "Mission Review Queue": page_handover,
     "Data Export": page_export,
-    "Resources & Limitations": page_resources,
+    "Space Health Knowledge Base": page_resources,
 }
 
 
@@ -1212,7 +1261,7 @@ def main() -> None:
 
     with st.sidebar:
         st.markdown(f"# 🛰️ {APP_NAME}")
-        st.caption(f"Mission Health Prototype · v{VERSION}")
+        st.caption(f"Explainable Crew Health Prototype · v{VERSION}")
         st.divider()
 
         page = st.radio("Navigation", list(PAGES), key="navigation")
