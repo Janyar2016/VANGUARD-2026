@@ -1,108 +1,79 @@
-
 # System Architecture
 ## ASTRA HEALTH Technical Architecture
 
+**Application version:** 4.0.0
+
 ### 1. Architecture Overview
 
-ASTRA HEALTH uses a modular software architecture designed to organize astronaut health information, analyze available records, and present results through an interactive interface.
+ASTRA HEALTH is a local Streamlit application. Its architecture separates user interaction, input validation, demonstration-rule assessment, local persistence, visualization, review workflow, and export.
 
-The system is divided into several functional layers.
+### 2. Main Components
 
-### 2. System Layers
+**1. User Interface — Streamlit**
 
-**Layer 1: User Input**
+The interface provides the Mission Dashboard, Interactive Body Map, Health Input, Symptom Report, Mission Intelligence, Mission Review Queue, Data Export, and Space Health Knowledge Base.
 
-The system receives information through user interactions, including:
-- Physiological measurements.
-- Sleep duration.
-- Mood and well-being records.
-- Symptom descriptions.
-- Selected body regions.
-- Mission-related information.
+**2. Input and Validation**
 
-**Layer 2: Data Management**
+Users manually enter health indicators, mission context, and symptom details. The application applies basic input handling and validation before processing the submitted information.
 
-Entered information is organized into structured records.
+**3. Rule-Based Assessment**
 
-This layer manages health measurements, symptom reports, and available historical records.
+The monitoring engine applies predefined demonstration rules to selected measurements and combinations of inputs. Findings are presented with explanations. The rules are transparent software examples, not clinical thresholds, medical triage, AI, or machine learning.
 
-**Layer 3: Data Validation**
+**4. Data Persistence — SQLite**
 
-Input values are checked to identify missing, invalid, or incorrectly formatted information before analysis.
+Python's `sqlite3` module stores application records in `astra_health.db`, created beside `app.py`.
 
-**Layer 4: Health Analysis Engine**
+| Table | Stored content |
+|---|---|
+| `health_history` | Record ID, timestamp, and JSON payload for each health-input record |
+| `symptom_reports` | Report ID, timestamp, and JSON payload for each symptom report |
+| `handover_queue` | Review-item ID, timestamp, workflow status, and JSON payload |
 
-The analysis layer evaluates available information using the rules currently implemented in the prototype.
+A submitted symptom report and its corresponding review-queue item are inserted within one database transaction. Review-item status changes are written to the local queue table.
 
-It also supports comparisons between current measurements and previously recorded values.
+**5. Visualization and Review**
 
-**Layer 5: Alert Assessment**
+The dashboard, body map, and trend charts present the information available in the local application state and stored history. The Mission Review Queue displays submitted symptom-review items and their workflow status.
 
-The system evaluates selected conditions and assigns demonstration alert priorities.
+**6. Export**
 
-Alerts are presented with relevant information to support further review.
+The Data Export page creates a JSON snapshot containing the project/version metadata, mission labels, current health snapshot, health history, symptom reports, and review queue.
 
-**Layer 6: Visualization and Reporting**
+### 3. Data Flow
 
-The results are displayed through:
-- Health monitoring dashboard.
-- Interactive body map.
-- Trend charts.
-- Alert notifications.
-- Medical handover reports.
-- Structured data exports.
+**Health-input path**
 
-### 3. System Workflow
+User enters health measurements → input handling and validation → demonstration-rule assessment → SQLite `health_history` persistence → dashboard and trend views.
 
-The general workflow is:
+**Symptom-report path**
 
-1. The user enters health information.
-2. The system organizes the submitted data.
-3. Input values are checked.
-4. Available information is analyzed.
-5. Selected rules are evaluated.
-6. Relevant alerts are displayed.
-7. Reports are organized for medical review.
+User selects a body region and enters symptom details → report construction and demonstration assessment → SQLite transaction inserts into `symptom_reports` and `handover_queue` → Mission Review Queue displays the item → status updates are saved to SQLite.
+
+**Export path**
+
+Current application records → JSON serialization → downloadable JSON snapshot.
 
 ### 4. Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| Python | Main application logic |
-| Streamlit | Interactive user interface |
-| Pandas | Data organization and processing |
-| NumPy | Numerical operations |
-| Plotly | Charts and interactive visualizations |
-| JSON | Structured report export |
+| Python | Application logic |
+| Streamlit | Web interface and interaction |
+| Pandas | Tabular data handling and trend preparation |
+| Plotly | Interactive charts and body-map interaction |
+| SQLite (`sqlite3`) | Local relational persistence |
+| JSON | Structured record payloads and export |
 
-### 5. Data Flow
+### 5. Deployment and Storage Boundary
 
-The main data flow can be represented as:
+The application runs locally through Streamlit. The database file is stored on the same computer as the application unless the user changes the deployment environment. The current prototype does not provide cloud synchronization, secure multi-user authentication, encrypted clinical storage, live sensor ingestion, or automatic remote report transmission.
 
-User Input → Data Management → Validation → Health Analysis → Alert Assessment → Dashboard and Reports
+### 6. Design Principles
 
-### 6. Architecture Design Principles
-
-The architecture follows these principles:
-
-**Modularity**
-
-Different application functions are organized into separate components to make maintenance and future development easier.
-
-**Clarity**
-
-Health information and system-generated alerts are presented in an understandable format.
-
-**Extensibility**
-
-The architecture can be extended to support additional measurements, data sources, and analysis methods.
-
-**Data Awareness**
-
-The system distinguishes between entered information, historical records, and system-generated assessments.
-
-### 7. Current Implementation Scope
-
-The current prototype uses manually entered or demonstration data.
-
-Its current storage and analysis capabilities are limited to the implemented application environment. It is not connected to operational spacecraft systems, real astronaut medical sensors, or external medical databases.
+- **Explainability:** show which demonstration rule produced a finding.
+- **Local-first data handling:** keep prototype records in a local SQLite file.
+- **Separation of concerns:** distinguish user-entered records, rule-generated findings, and review workflow items.
+- **Scientific transparency:** distinguish external research references from datasets actually ingested by the software.
+- **Safe scope:** avoid diagnostic or operational medical claims.
