@@ -1,0 +1,17 @@
+# ASTRA HEALTH — External Resources
+
+This file lists selected official background resources referenced by the Space Health Knowledge Base. These pages provide scientific and educational context only. The current application does not download, ingest, or analyze NASA/CSA telemetry or research datasets.
+
+## NASA
+- Five Hazards of Human Spaceflight: https://www.nasa.gov/hrp/hazards/
+- Risks of Human Spaceflight: https://www.nasa.gov/hrp/risks/
+- Ongoing HRP Research in Space: https://www.nasa.gov/hrp/ongoing-hrp-research/
+- NASA Human Research Roadmap: https://humanresearchroadmap.nasa.gov/
+- NASA Technical Standards: https://standards.nasa.gov/
+
+## Canadian Space Agency
+- Monitoring Radiation for Astronaut Health: https://www.asc-csa.gc.ca/eng/news/articles/2026/2026-02-26-monitoring-radiation-astronaut-health.asp
+- Why Do We Conduct Science Experiments in Space?: https://www.asc-csa.gc.ca/eng/iss/science/why-do-we-conduct-science-experiments-in-space.asp
+
+## Important note
+No ASTRA HEALTH rule threshold is claimed to be an official NASA/CSA limit or clinically validated range. Consult each source's own terms before reusing content or data. NASA does not endorse non-U.S. Government entities and is not responsible for information on non-U.S. Government websites.
