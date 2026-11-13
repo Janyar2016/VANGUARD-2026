@@ -1,63 +1,72 @@
-
 # Scientific References
 ## Scientific Background and Research Sources
 
-### 1. NASA Human Research Program
+The following resources provide background context for the spaceflight health topics discussed in ASTRA HEALTH. They are reference material, not datasets ingested by the current application.
 
-**Organization:** NASA
+### 1. NASA Human Research Program — Five Hazards of Human Spaceflight
 
-**Topic:** Human health risks during spaceflight.
+**Organization:** NASA  
+**Topic:** Major human-spaceflight hazard areas.  
+**Link:** https://www.nasa.gov/hrp/hazards/
 
-**Link:** https://www.nasa.gov/hrp/
+**Relevance:** Provides an overview of space radiation, isolation and confinement, distance from Earth, gravity fields, and hostile or closed environments.
 
-**Relevance to ASTRA HEALTH:**
+### 2. NASA — Risks of Human Spaceflight
 
-NASA's Human Research Program studies the effects of spaceflight on human health and performance. Its research provides background for understanding the health challenges addressed by ASTRA HEALTH.
+**Organization:** NASA  
+**Topic:** Human health and performance risks associated with spaceflight.  
+**Link:** https://www.nasa.gov/hrp/risks/
 
-### 2. NASA Human Research Roadmap
+**Relevance:** Background information on risks studied in human spaceflight.
 
-**Organization:** NASA
+### 3. NASA — Ongoing Human Research Program Research in Space
 
-**Topic:** Spaceflight health risks and research gaps.
+**Organization:** NASA  
+**Topic:** Ongoing research related to human health in space.  
+**Link:** https://www.nasa.gov/hrp/ongoing-hrp-research/
 
+**Relevance:** Provides examples of research activities addressing human health and performance during spaceflight.
+
+### 4. NASA Human Research Roadmap
+
+**Organization:** NASA  
+**Topic:** Human health risks, research gaps, and exploration-related research.  
 **Link:** https://humanresearchroadmap.nasa.gov/
 
-**Relevance to ASTRA HEALTH:**
+**Relevance:** A research reference for understanding identified risks and knowledge gaps in human space exploration.
 
-The Human Research Roadmap provides information about health risks associated with human space exploration and helps identify areas where improved monitoring and research may be valuable.
+### 5. NASA Technical Standards
 
-### 3. NASA Space Radiation Research
+**Organization:** NASA  
+**Topic:** NASA technical standards and reference material.  
+**Link:** https://standards.nasa.gov/
 
-**Organization:** NASA
+**Relevance:** A general reference portal. The current prototype does not claim its input ranges or rule thresholds are taken from NASA standards.
 
-**Topic:** Radiation exposure during spaceflight.
+### 6. Canadian Space Agency — Monitoring Radiation for Astronaut Health
 
-**Link:** https://www.nasa.gov/hrp/elements/radiation/
+**Organization:** Canadian Space Agency (CSA)  
+**Topic:** Radiation monitoring technologies and astronaut health research.  
+**Link:** https://www.asc-csa.gc.ca/eng/news/articles/2026/2026-02-26-monitoring-radiation-astronaut-health.asp
 
-**Relevance to ASTRA HEALTH:**
+**Relevance:** Provides background on radiation monitoring in the spaceflight context.
 
-Space radiation is an important environmental health concern for astronauts. This research area provides scientific context for considering radiation exposure in future versions of the platform.
+### 7. Canadian Space Agency — Why Do We Conduct Science Experiments in Space?
 
-### 4. NASA Human System Risk Research
+**Organization:** Canadian Space Agency (CSA)  
+**Topic:** Scientific research in the space environment.  
+**Link:** https://www.asc-csa.gc.ca/eng/iss/science/why-do-we-conduct-science-experiments-in-space.asp
 
-**Organization:** NASA
+**Relevance:** General context about the value of conducting scientific experiments in space.
 
-**Topic:** Human health and performance risks in space.
+### 8. Reference and Data-Use Policy
 
-**Link:** https://www.nasa.gov/hrp/
+The resources above are used as scientific and educational context. The current ASTRA HEALTH prototype does **not** download, ingest, or analyze NASA/CSA telemetry or research datasets. Their inclusion does not mean NASA or CSA has reviewed, validated, or endorsed this project.
 
-**Relevance to ASTRA HEALTH:**
+No rule threshold in the current application is claimed to be an official NASA or CSA limit, clinical reference range, or medical standard. Users should consult each source's own terms and conditions before reusing material or data.
 
-NASA research on human-system risks provides background for understanding how microgravity, isolation, and other spaceflight conditions can affect astronaut health.
+NASA disclaimer: NASA does not endorse non-U.S. Government entities and is not responsible for information on non-U.S. Government websites.
 
-### 5. Additional Scientific Literature
+### 9. Further Literature
 
-Further peer-reviewed research will be added to this document to support specific health indicators, spaceflight-related physiological changes, and future analytical methods.
-
-### 6. Reference and Data Policy
-
-ASTRA HEALTH distinguishes between scientific background information, software demonstration rules, and validated medical standards.
-
-The current prototype does not use its demonstration thresholds as official NASA medical limits.
-
-All future scientific claims and external datasets should be documented with their original sources.
+Peer-reviewed scientific literature should be added when specific physiological indicators, analytical methods, or future integrations are selected. Each additional reference should identify its authors, title, publication, year, and DOI or stable URL where available.
