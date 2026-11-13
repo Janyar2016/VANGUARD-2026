@@ -1250,7 +1250,7 @@ PAGES = {
     "Mission Intelligence": page_intelligence,
     "Mission Review Queue": page_handover,
     "Data Export": page_export,
-    "Resources & Limitations": page_resources,
+    "Space Health Knowledge Base": page_resources,
 }
 
 
