@@ -15,3 +15,6 @@ This file lists selected official background resources referenced by the Space H
 
 ## Important note
 No ASTRA HEALTH rule threshold is claimed to be an official NASA/CSA limit or clinically validated range. Consult each source's own terms before reusing content or data. NASA does not endorse non-U.S. Government entities and is not responsible for information on non-U.S. Government websites.
+
+NASA Open Science Data Repository — OSD-575, SpaceX Inspiration4 Blood Serum Metabolic Panel and Immune/Cardiac Cytokine Arrays (processed CMP CSV; accessed by the ASTRA HEALTH NASA OSDR Research Data page): https://osdr.nasa.gov/bio/repo/data/studies/OSD-575
+NASA OSDR study DOI: https://doi.org/10.26030/mc5d-p710
