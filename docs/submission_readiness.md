@@ -4,7 +4,7 @@
 **Team:** VANGUARD POLARIS  
 **Challenge:** Create Health Monitoring Software for Astronauts on Space Missions  
 **Documentation snapshot:** 2026-11-14  
-**Application version documented:** 4.0.0
+**Application version documented:** 4.1.0
 
 > This document records the current project state and submission checks. It is not a certification of contest eligibility, NASA review, or clinical validation.
 
@@ -20,7 +20,7 @@ The documented implementation includes:
 - A local Mission Review Queue for submitted symptom reports.
 - JSON export and a Space Health Knowledge Base.
 
-The current version does **not** connect to live astronaut sensors, spacecraft telemetry, or NASA/CSA operational systems. It does **not** download, ingest, or analyze NASA/CSA research datasets. Its rules are not a trained AI model, medical device, clinical decision system, or official NASA/CSA threshold set.
+Version 4.1.0 adds a NASA OSDR research-data page that downloads and displays the public processed OSD-575 Comprehensive Metabolic Panel CSV from the Inspiration4 study and calculates descriptive statistics. The app still does **not** connect to live astronaut sensors, spacecraft telemetry, or NASA/CSA operational systems. The OSD-575 dataset is a limited research dataset with samples collected at defined pre-flight and post-flight time points; it is not continuous in-flight telemetry and does not set the app's illustrative alert thresholds. Its rules are not a trained AI model, medical device, clinical decision system, or official NASA/CSA threshold set.
 
 ## 2. NASA Space Apps organizer guidance
 
@@ -36,21 +36,13 @@ Organizer clarification: https://github.com/nasa/spaceapps/discussions/1827
 
 The same GO Team response states that teams interested in Global Awards must use at least one NASA data source included with the selected challenge's Resources. It also says that all data, resources, and tools used must be listed in the submission references.
 
-The current ASTRA HEALTH implementation documents NASA and CSA pages as **background references only**. It does not currently demonstrate the ingestion or analysis of a NASA dataset. Therefore, the repository must not claim that a NASA dataset has been integrated or analyzed.
+The current ASTRA HEALTH implementation now includes a separate NASA OSDR data explorer for the public processed OSD-575 dataset. The app downloads the CMP CSV from NASA OSDR, displays its source columns, and computes descriptive statistics for numeric columns. This is a genuine use of a NASA-hosted research dataset, but it is not real-time astronaut monitoring, does not establish clinical reference ranges, and does not change the app's illustrative rule thresholds. The team must verify that OSD-575 satisfies the exact NASA-data requirement for this challenge's official Resources list before claiming Global Award eligibility.
 
 A separate community discussion about this challenge explains that there may not be one unified downloadable astronaut-health dataset and suggests exploring NASA research repositories. That response is useful context, but it is not a substitute for checking the official challenge Resources and the actual dataset terms.
 
 Challenge-specific discussion: https://github.com/nasa/spaceapps/discussions/2025
 
-Before claiming NASA-data use, the team would need to:
-1. Select an appropriate NASA data source that satisfies the challenge's official Resources requirement.
-2. Confirm that the data can lawfully be accessed and reused.
-3. Actually use the data in the project in a clearly described way.
-4. Keep research data distinct from synthetic demonstration telemetry.
-5. Cite the dataset, version or study identifier, access date, and relevant documentation.
-6. Update the application and documentation to describe exactly what was used.
-
-Until those steps are completed, describe the current app as using manual/synthetic demonstration inputs and NASA/CSA background references only.
+The implementation uses the public processed CSV from NASA OSDR study OSD-575 (Inspiration4 blood-serum Comprehensive Metabolic Panel). The app retrieves the file from the NASA OSDR download endpoint when the NASA OSDR Research Data page is opened, caches it for six hours, displays the tabular data, and computes descriptive statistics for numeric columns. The source study page lists a CC0-1.0 license. The team must still confirm that this dataset is one of the NASA resources permitted or listed for this specific challenge. Do not claim that the dataset provides continuous in-flight vital signs or that it supplies clinical alert thresholds.
 
 ## 4. Submission demo checks
 
@@ -81,7 +73,7 @@ The team should verify that all members appear on the official team page and tha
 
 A careful description of the current implementation is:
 
-> ASTRA HEALTH is a local, explainable, rule-based astronaut-health information-management prototype. It organizes manually entered or synthetic demonstration measurements, symptom reports, historical records, and a local review workflow. NASA and CSA publications are used as scientific background references. The current version does not ingest NASA/CSA datasets or live astronaut telemetry and is not clinically validated or intended for operational medical decisions.
+> ASTRA HEALTH is a local, explainable, rule-based astronaut-health information-management prototype. Its main monitoring workflow organizes manually entered or synthetic demonstration measurements, symptom reports, historical records, and a local review queue. A separate research-data page retrieves and displays NASA OSDR study OSD-575 processed blood-serum metabolic-panel data and provides descriptive statistics. This dataset is not live telemetry and does not set clinical thresholds. The app is not clinically validated and is not intended for operational medical decisions.
 
 ## 8. Official and project references
 
