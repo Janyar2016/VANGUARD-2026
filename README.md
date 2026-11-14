@@ -12,7 +12,7 @@ Built by **VANGUARD POLARIS**
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![Version](https://img.shields.io/badge/Version-4.0.0-16A34A?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-4.1.0-16A34A?style=for-the-badge)
 
 </div>
 
@@ -39,6 +39,7 @@ The prototype focuses on **organizing information and making its software-genera
 | **Mission Review Queue** | Stores submitted symptom-review items locally and supports workflow-status updates. |
 | **Data Export** | Downloads a JSON snapshot of the available project records. |
 | **Space Health Knowledge Base** | Summarizes selected NASA Human Research Program topics and links to NASA and Canadian Space Agency (CSA) reference material. |
+| **NASA OSDR Research Data** | Downloads and displays the public processed NASA OSD-575 Inspiration4 blood-serum metabolic-panel dataset, with descriptive numeric summaries. |
 
 ## How the application works
 
@@ -63,7 +64,7 @@ The database is local to the computer running the application. It is not a NASA 
 
 The **Space Health Knowledge Base** introduces five broad human-spaceflight hazard areas described by NASA: space radiation, isolation and confinement, distance from Earth, gravity fields, and hostile or closed environments. It also links to NASA Human Research Program risk and research pages, the NASA Human Research Roadmap, NASA Technical Standards, and selected CSA educational and research resources.
 
-These materials provide **scientific background and context**. The current prototype does **not** download, ingest, or analyze NASA/CSA telemetry or research datasets. Its demonstration thresholds are not NASA or CSA medical limits and are not derived from those websites.
+These materials provide **scientific background and context**. The current prototype does not connect to live NASA/CSA telemetry. Version 4.1.0 adds a separate research-data explorer that downloads and displays the public processed NASA OSDR OSD-575 Inspiration4 blood-serum metabolic-panel CSV and calculates descriptive statistics. This dataset contains research samples at defined pre-flight and post-flight time points; it is not live in-flight telemetry and is not used to set the prototype's illustrative alert thresholds.
 
 See [Scientific References](docs/scientific_references.md) and [Resources](resources.txt).
 
