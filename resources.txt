@@ -1,6 +1,6 @@
 # ASTRA HEALTH — External Resources
 
-This file lists selected official background resources referenced by the Space Health Knowledge Base. These pages provide scientific and educational context only. The current application does not download, ingest, or analyze NASA/CSA telemetry or research datasets.
+This file lists the official scientific references and data sources used or referenced by ASTRA HEALTH. The NASA OSDR OSD-575 processed dataset is retrieved by the separate NASA OSDR Research Data page; the other listed NASA and CSA pages are background references.
 
 ## NASA
 - Five Hazards of Human Spaceflight: https://www.nasa.gov/hrp/hazards/
@@ -16,5 +16,5 @@ This file lists selected official background resources referenced by the Space H
 ## Important note
 No ASTRA HEALTH rule threshold is claimed to be an official NASA/CSA limit or clinically validated range. Consult each source's own terms before reusing content or data. NASA does not endorse non-U.S. Government entities and is not responsible for information on non-U.S. Government websites.
 
-NASA Open Science Data Repository — OSD-575, SpaceX Inspiration4 Blood Serum Metabolic Panel and Immune/Cardiac Cytokine Arrays (processed CMP CSV; accessed by the ASTRA HEALTH NASA OSDR Research Data page): https://osdr.nasa.gov/bio/repo/data/studies/OSD-575
+NASA Open Science Data Repository — OSD-575, SpaceX Inspiration4 Blood Serum Metabolic Panel and Immune/Cardiac Cytokine Arrays (processed CMP CSV; retrieved at runtime by the ASTRA HEALTH NASA OSDR Research Data page): https://osdr.nasa.gov/bio/repo/data/studies/OSD-575
 NASA OSDR study DOI: https://doi.org/10.26030/mc5d-p710
