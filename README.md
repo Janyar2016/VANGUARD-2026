@@ -153,6 +153,10 @@ ASTRA HEALTH is an **educational software prototype**.
 
 Any real health concern must be handled through the appropriate approved procedures and qualified professionals.
 
+## Submission readiness
+
+**Documentation snapshot: November 14, 2026.** See [Submission Readiness and Compliance Notes](docs/submission_readiness.md) for the current implementation boundaries, organizer guidance, NASA-data status, demo restrictions, and final submission checks. This is a factual status note, not a claim of contest eligibility or NASA endorsement.
+
 ## Project documentation
 
 | Document | Purpose |
