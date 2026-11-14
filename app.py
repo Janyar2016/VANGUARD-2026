@@ -38,7 +38,7 @@ st.set_page_config(
 # --------------------------------------------------------------------------
 
 APP_NAME = "ASTRA HEALTH"
-VERSION = "4.1.0"
+VERSION = "4.2.0"
 DB_PATH = Path(__file__).with_name("astra_health.db")
 
 DISCLAIMER = (
@@ -1206,11 +1206,12 @@ def page_resources() -> None:
     )
 
     notice(
-        "<b>Source and data-use note:</b> These links and summaries provide scientific context. "
-        "This prototype does not download, ingest, or analyze NASA/CSA telemetry or research datasets. "
-        "No rule threshold in this app is claimed to come from NASA or CSA. Follow the data-use terms "
-        "of each external website. NASA does not endorse non-U.S. Government entities and is not "
-        "responsible for information on non-U.S. Government websites."
+        "<b>Source and data-use note:</b> This knowledge base provides NASA/CSA scientific context. "
+        "ASTRA HEALTH also retrieves and retrospectively analyzes the public NASA OSDR OSD-575 "
+        "Inspiration4 serum dataset in the separate NASA OSDR analytics page. Those descriptive "
+        "comparisons do not set the prototype's demonstration alert thresholds and are not clinical "
+        "decision support. Follow the terms of each external source. NASA does not endorse non-U.S. "
+        "Government entities and is not responsible for information on non-U.S. Government websites."
     )
 
     st.subheader("What ASTRA HEALTH currently does")
@@ -1220,12 +1221,13 @@ def page_resources() -> None:
 - Schematic body-region selection and structured symptom reports
 - Transparent, rule-based demonstration checks with an explanation for each finding
 - Comparison with a recent personal heart-rate reference when enough earlier records exist
-- Historical trend charts, a local review queue, and JSON export"""
+- Historical trend charts, a local review queue, and JSON export
+- A separate NASA OSDR analytics module that compares Inspiration4 serum biomarkers with each crew code's own pre-flight mean and displays source-provided ranges"""
     )
 
     st.subheader("Current system boundaries")
     st.markdown(
-        """- No live spacecraft sensors, NASA telemetry, or external health-data connection
+        """- No live spacecraft sensors or live NASA telemetry; the OSD-575 connection is retrospective public research data only
 - No machine-learning model or automated prediction
 - No clinically validated thresholds, diagnosis, treatment advice, or medical triage
 - No secure multi-user authentication or encrypted clinical database
@@ -1276,7 +1278,7 @@ def main() -> None:
 
         st.divider()
         st.markdown(
-            '<div class="muted">LOCAL PROTOTYPE<br>Manual / synthetic data<br>'
+            '<div class="muted">LOCAL PROTOTYPE<br>Manual / synthetic + historical NASA research<br>'
             "No external transmission</div>",
             unsafe_allow_html=True,
         )
