@@ -68,8 +68,8 @@ def _sample_column(frame: pd.DataFrame) -> str | None:
 def _parse_sample(value: Any) -> tuple[str | None, str | None]:
     """Extract anonymised crew code and collection visit from OSDR sample label."""
     label = str(value).strip().upper()
-    subject = re.search(r"\b(C\d{3})\b", label)
-    visit = re.search(r"\b(L-\d+|R\+\d+)\b", label)
+    subject = re.search(r"(?<![A-Z0-9])(C\d{3})(?![A-Z0-9])", label)
+    visit = re.search(r"(?<![A-Z0-9])(L-\d+|R\+\d+)(?![A-Z0-9])", label)
     return (
         subject.group(1) if subject else None,
         visit.group(1) if visit else None,
