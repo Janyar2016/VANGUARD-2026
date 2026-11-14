@@ -39,7 +39,7 @@ The prototype focuses on **organizing information and making its software-genera
 | **Mission Review Queue** | Stores submitted symptom-review items locally and supports workflow-status updates. |
 | **Data Export** | Downloads a JSON snapshot of the available project records. |
 | **Space Health Knowledge Base** | Summarizes selected NASA Human Research Program topics and links to NASA and Canadian Space Agency (CSA) reference material. |
-| **NASA OSDR Research Data** | Downloads and displays the public processed NASA OSD-575 Inspiration4 blood-serum metabolic-panel dataset, with descriptive numeric summaries. |
+| **NASA OSDR Spaceflight Health Analytics** | Retrieves OSD-575 and turns its anonymised sample rows into a retrospective analysis: per-crew pre-flight means, post-flight changes, percentage differences, source-range comparisons, timeline charts, and downloadable comparison reports. |
 
 ## How the application works
 
@@ -64,7 +64,7 @@ The database is local to the computer running the application. It is not a NASA 
 
 The **Space Health Knowledge Base** introduces five broad human-spaceflight hazard areas described by NASA: space radiation, isolation and confinement, distance from Earth, gravity fields, and hostile or closed environments. It also links to NASA Human Research Program risk and research pages, the NASA Human Research Roadmap, NASA Technical Standards, and selected CSA educational and research resources.
 
-These materials provide **scientific background and context**. The current prototype does not connect to live NASA/CSA telemetry. Version 4.1.0 adds a separate research-data explorer that downloads and displays the public processed NASA OSDR OSD-575 Inspiration4 blood-serum metabolic-panel CSV and calculates descriptive statistics. This dataset contains research samples at defined pre-flight and post-flight time points; it is not live in-flight telemetry and is not used to set the prototype's illustrative alert thresholds.
+These materials provide **scientific background and context**. The current prototype does not connect to live NASA/CSA telemetry. Version 4.2.0 adds a separate NASA OSDR analytics module. It parses the anonymised Inspiration4 sample labels, calculates a personal pre-flight mean for each crew code and biomarker from available L−92, L−44 and L−3 samples, then compares post-flight measurements against that baseline. It also displays the source-provided sample ranges, collection timeline, percentage changes, and exportable comparison tables. These are retrospective descriptive analyses—not live telemetry, clinical alerts, or inputs to the prototype's illustrative rule thresholds.
 
 See [Scientific References](docs/scientific_references.md) and [Resources](resources.txt).
 
@@ -145,7 +145,7 @@ ASTRA HEALTH is an **educational software prototype**.
 
 - It does not diagnose conditions, prescribe treatment, or make flight-medical decisions.
 - Its thresholds and alert rules are illustrative software settings, not clinically validated reference ranges or official NASA limits.
-- It uses manually entered or synthetic demonstration information; it does not connect to live spacecraft sensors or NASA telemetry.
+- The main health-monitoring workflow uses manually entered or synthetic demonstration information. A separate page analyzes historical public NASA OSDR research data; neither page connects to live spacecraft sensors or NASA telemetry.
 - Its monitoring engine is rule-based. It is not a trained AI or machine-learning model.
 - Priority labels are workflow labels for software demonstration, not medical triage.
 - The review queue is local and does not send reports to medical personnel or mission control.
