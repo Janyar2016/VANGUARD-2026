@@ -24,6 +24,8 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+from nasa_osdr import page_nasa_osdr
+
 st.set_page_config(
     page_title="ASTRA HEALTH",
     page_icon="🛰️",
@@ -36,7 +38,7 @@ st.set_page_config(
 # --------------------------------------------------------------------------
 
 APP_NAME = "ASTRA HEALTH"
-VERSION = "4.0.0"
+VERSION = "4.1.0"
 DB_PATH = Path(__file__).with_name("astra_health.db")
 
 DISCLAIMER = (
@@ -1251,6 +1253,7 @@ PAGES = {
     "Mission Review Queue": page_handover,
     "Data Export": page_export,
     "Space Health Knowledge Base": page_resources,
+    "NASA OSDR Research Data": page_nasa_osdr,
 }
 
 
